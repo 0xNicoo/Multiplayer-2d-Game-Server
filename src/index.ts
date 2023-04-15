@@ -10,5 +10,5 @@ server.on('connection', function connection(ws) {
         console.log('recived: %s',data);
     });
 
-    ws.send('Conectado wachin');
+    ws.send('Conectado wachinn');
 });
