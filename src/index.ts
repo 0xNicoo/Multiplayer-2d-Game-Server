@@ -1,16 +1,14 @@
-import express from 'express'
-
-
-const app = express();
-app.use(express.json());
+import { WebSocketServer } from 'ws';
 
 const PORT = 3000;
+const server = new WebSocketServer({ port: 8080 });
 
-app.get('/ping', (req, res) => {
-    console.log('ping ping');
-    res.send('pong')
-})
+server.on('connection', function connection(ws) {
+    ws.on('error', console.error);
 
-app.listen(PORT, () => {
-    console.log('server runinng')
-})
+    ws.on('message', function message(data){
+        console.log('recived: %s',data);
+    });
+
+    ws.send('Conectado wachin');
+});
