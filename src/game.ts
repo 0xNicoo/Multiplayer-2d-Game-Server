@@ -4,12 +4,12 @@ import { Position } from "./entities/atributes/position";
 export default class Game {
   players: Player[] = [];
 
-  PLAYER_SPEED = 1;
+  PLAYER_SPEED = 4;
 
   constructor() { }
 
   addNewPlayerToGame(playerId: string): Player {
-    const player = new Player(playerId, { x: Math.floor(Math.random() * 10), y: Math.floor(Math.random() * 10) }, `rgb(${this.randomRgb()},${this.randomRgb()},${this.randomRgb()})`)
+    const player = new Player(playerId, { x: Math.floor(Math.random() * 500), y: Math.floor(Math.random() * 500) }, `rgb(${this.randomRgb()},${this.randomRgb()},${this.randomRgb()})`)
     this.players.push(player)
     return player;
   }
